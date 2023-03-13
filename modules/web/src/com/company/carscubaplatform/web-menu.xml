@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
+    <menu id="application-carscubaplatform" insertBefore="administration" caption="mainMsg://menu_config.application-carscubaplatform">
+        <item screen="carscubaplatform_Country.browse" caption="mainMsg://menu_config.carscubaplatform_Country.browse"/>
+        <item screen="carscubaplatform_AutoProducer.browse"
+              caption="mainMsg://menu_config.carscubaplatform_AutoProducer.browse"/>
+        <item screen="carscubaplatform_Color.browse" caption="mainMsg://menu_config.carscubaplatform_Color.browse"/>
+        <item screen="carscubaplatform_AutoPicking.browse"
+              caption="mainMsg://menu_config.carscubaplatform_AutoPicking.browse"/>
+        <item screen="carscubaplatform_CarBrand.browse"
+              caption="mainMsg://menu_config.carscubaplatform_CarBrand.browse"/>
+        <item screen="carscubaplatform_Car.browse" caption="mainMsg://menu_config.carscubaplatform_Car.browse"/>
+        <item screen="carscubaplatform_LegalPersonalInfo.browse"
+              caption="mainMsg://menu_config.carscubaplatform_LegalPersonalInfo.browse"/>
+        <item screen="carscubaplatform_AutoBuyingRequest.browse"
+              caption="mainMsg://menu_config.carscubaplatform_AutoBuyingRequest.browse"/>
+    </menu>
+</menu-config>

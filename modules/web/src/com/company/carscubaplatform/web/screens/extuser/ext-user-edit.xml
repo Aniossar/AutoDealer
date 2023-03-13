@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        xmlns:ext="http://schemas.haulmont.com/cuba/window-ext.xsd"
+        extends="/com/haulmont/cuba/gui/app/security/user/edit/user-edit.xml"
+        caption="msg://extUserEdit.caption"
+        messagesPack="com.company.carscubaplatform.web.screens.extuser">
+    <dsContext>
+        <datasource id="userDs" class="com.company.carscubaplatform.entity.person.ExtUser" view="user.edit">
+            <groupDatasource id="rolesDs" property="userRoles"/>
+            <collectionDatasource id="substitutionsDs" property="substitutions"/>
+        </datasource>
+    </dsContext>
+    <layout>
+        <groupBox id="propertiesBox">
+            <grid id="propertiesGrid">
+                <rows>
+                    <row id="propertiesRow">
+                        <fieldGroup id="fieldGroupLeft">
+                            <column>
+                                <field datasource="userDs" ext:index="3" id="country" property="country"/>
+                            </column>
+                        </fieldGroup>
+                    </row>
+                </rows>
+            </grid>
+        </groupBox>
+    </layout>
+</window>

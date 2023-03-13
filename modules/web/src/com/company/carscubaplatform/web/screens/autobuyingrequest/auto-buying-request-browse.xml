@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://autoBuyingRequestBrowse.caption"
+        focusComponent="autoBuyingRequestsTable"
+        messagesPack="com.company.carscubaplatform.web.screens.autobuyingrequest">
+    <data readOnly="true">
+        <collection id="autoBuyingRequestsDc"
+                    class="com.company.carscubaplatform.entity.dealer.AutoBuyingRequest">
+            <view extends="_local">
+                <property name="car" view="_minimal">
+                    <property name="autoProducer" view="_minimal"/>
+                    <property name="carBrand" view="_minimal"/>
+                    <property name="autoPicking" view="_minimal"/>
+                    <property name="yearProduce"/>
+                    <property name="carPrice"/>
+                </property>
+                <property name="legalPersonalInfo" view="_minimal"/>
+                <property name="manager" view="_minimal"/>
+            </view>
+            <loader id="autoBuyingRequestsDl">
+                <query>
+                    <![CDATA[select e from carscubaplatform_AutoBuyingRequest e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="autoBuyingRequestsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="autoBuyingRequestsTable"
+                dataLoader="autoBuyingRequestsDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="autoBuyingRequestsTable"
+                    width="100%"
+                    dataContainer="autoBuyingRequestsDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="car"/>
+                <column id="legalPersonalInfo"/>
+                <column id="isAutoBought"/>
+                <column id="price"/>
+                <column id="manager"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="autoBuyingRequestsTable.create"/>
+                <button id="editBtn" action="autoBuyingRequestsTable.edit"/>
+                <button id="removeBtn" action="autoBuyingRequestsTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

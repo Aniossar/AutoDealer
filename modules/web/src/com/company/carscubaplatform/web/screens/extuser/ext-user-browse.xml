@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:ext="http://schemas.haulmont.com/cuba/window-ext.xsd"
+        extends="/com/haulmont/cuba/gui/app/security/user/browse/user-browse.xml"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://extUserBrowse.caption"
+        messagesPack="com.company.carscubaplatform.web.screens.extuser">
+    <data readOnly="true">
+        <collection id="extUsersDc"
+                    class="com.company.carscubaplatform.entity.person.ExtUser"
+                    view="user.browse">
+            <loader id="extUsersDl">
+                <query>
+                    <![CDATA[select e from sec$User e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout>
+        <groupTable id="usersTable">
+            <columns>
+                <column ext:index="2" id="country"/>
+            </columns>
+        </groupTable>
+        >
+    </layout>
+</window>

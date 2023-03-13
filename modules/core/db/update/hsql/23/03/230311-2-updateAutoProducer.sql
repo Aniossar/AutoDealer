@@ -1,0 +1,1 @@
+alter table CARSCUBAPLATFORM_AUTO_PRODUCER add column CAR_BRAND_QUANTITY decimal(19, 2) ;

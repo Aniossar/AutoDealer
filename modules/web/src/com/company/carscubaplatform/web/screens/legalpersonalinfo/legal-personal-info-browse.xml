@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://legalPersonalInfoBrowse.caption"
+        focusComponent="legalPersonalInfoesTable"
+        messagesPack="com.company.carscubaplatform.web.screens.legalpersonalinfo">
+    <data readOnly="true">
+        <collection id="legalPersonalInfoesDc"
+                    class="com.company.carscubaplatform.entity.person.LegalPersonalInfo">
+            <view extends="_local"/>
+            <loader id="legalPersonalInfoesDl">
+                <query>
+                    <![CDATA[select e from carscubaplatform_LegalPersonalInfo e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="legalPersonalInfoesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="legalPersonalInfoesTable"
+                dataLoader="legalPersonalInfoesDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="legalPersonalInfoesTable"
+                    width="100%"
+                    dataContainer="legalPersonalInfoesDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="legalName"/>
+                <column id="iNNAddress"/>
+                <column id="personalName"/>
+                <column id="phoneNumber">
+                    <formatter class="com.company.carscubaplatform.web.screens.legalpersonalinfo.PhoneFormatter"/>
+                </column>
+                <column id="generatedColumnNumberOfRequests" caption="Количество заявок на покупку автомобиля"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="legalPersonalInfoesTable.create"/>
+                <button id="editBtn" action="legalPersonalInfoesTable.edit"/>
+                <button id="removeBtn" action="legalPersonalInfoesTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

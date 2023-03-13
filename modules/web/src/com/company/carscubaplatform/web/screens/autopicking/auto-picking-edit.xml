@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://autoPickingEdit.caption"
+        focusComponent="form"
+        messagesPack="com.company.carscubaplatform.web.screens.autopicking">
+    <data>
+        <instance id="autoPickingDc"
+                  class="com.company.carscubaplatform.entity.dealer.AutoPicking">
+            <view extends="_local">
+                <property name="carBrand" view="_minimal"/>
+            </view>
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="autoPickingDc">
+            <column width="350px">
+                <textField id="pickingNameField" property="pickingName"/>
+                <textField id="priceField" property="price"/>
+                <lookupField id="carTypeField" property="carType"/>
+                <textField id="commentField" property="comment"/>
+                <pickerField id="carBrandField" property="carBrand">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                        <action id="clear" type="picker_clear"/>
+                    </actions>
+                </pickerField>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
+            <button id="closeBtn" action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

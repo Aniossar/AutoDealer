@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+    <persistence-unit name="carscubaplatform" transaction-type="RESOURCE_LOCAL">
+
+        <class>com.company.carscubaplatform.entity.person.ExtUser</class>
+        <class>com.company.carscubaplatform.entity.Country</class>
+        <class>com.company.carscubaplatform.entity.car.AutoProducer</class>
+        <class>com.company.carscubaplatform.entity.car.Color</class>
+        <class>com.company.carscubaplatform.entity.car.CarBrand</class>
+        <class>com.company.carscubaplatform.entity.dealer.AutoPicking</class>
+        <class>com.company.carscubaplatform.entity.car.Car</class>
+        <class>com.company.carscubaplatform.entity.person.LegalPersonalInfo</class>
+        <class>com.company.carscubaplatform.entity.dealer.AutoBuyingRequest</class>
+    </persistence-unit>
+</persistence>

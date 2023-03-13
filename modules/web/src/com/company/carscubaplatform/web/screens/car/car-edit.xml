@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://carEdit.caption"
+        focusComponent="form"
+        messagesPack="com.company.carscubaplatform.web.screens.car">
+    <data>
+        <instance id="carDc"
+                  class="com.company.carscubaplatform.entity.car.Car">
+            <view extends="_local">
+                <property name="autoProducer" view="_minimal"/>
+                <property name="carBrand" view="_minimal"/>
+                <property name="autoPicking" view="_minimal">
+                </property>
+            </view>
+            <loader id="carsDl"/>
+        </instance>
+        <collection id="autoProducersDc" class="com.company.carscubaplatform.entity.car.AutoProducer" view="_minimal">
+            <loader id="autoProducersDl">
+                <query>
+                    <![CDATA[select e from carscubaplatform_AutoProducer e]]>
+                </query>
+            </loader>
+        </collection>
+        <collection id="carBrandsDc" class="com.company.carscubaplatform.entity.car.CarBrand" view="_minimal">
+            <loader id="carBrandsDl">
+                <query>
+                    <![CDATA[select e from carscubaplatform_CarBrand e where e.autoProducer = :autoProducer]]>
+                </query>
+            </loader>
+        </collection>
+        <collection id="autoPickingDc" class="com.company.carscubaplatform.entity.dealer.AutoPicking" view="_minimal">
+            <loader id="autoPickingDl">
+                <query><![CDATA[select e from carscubaplatform_AutoPicking e where e.carBrand = :carBrand]]></query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="carDc">
+            <column width="350px">
+                <lookupPickerField id="autoProducerField" optionsContainer="autoProducersDc" property="autoProducer"/>
+                <lookupPickerField id="carBrandField" optionsContainer="carBrandsDc" property="carBrand"/>
+                <lookupPickerField id="autoPickingField" optionsContainer="autoPickingDc" property="autoPicking"/>
+                <!--<textField id="nameField" property="name"/>-->
+                <textField id="carPriceField" property="carPrice"/>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
+            <button id="closeBtn" action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:gui="http://schemas.haulmont.com/cuba/spring/cuba-gui.xsd">
+
+    <!-- Annotation-based beans -->
+    <context:component-scan base-package="com.company.carscubaplatform"/>
+    
+    <gui:screens base-packages="com.company.carscubaplatform.web"/>
+    <bean id="carscubaplatform_proxyCreator" class="com.haulmont.cuba.web.sys.remoting.WebRemoteProxyBeanCreator">
+        <property name="serverSelector" ref="cuba_ServerSelector"/>
+        <property name="remoteServices">
+            <map>
+                <entry key="carscubaplatform_ExtUserService"
+                       value="com.company.carscubaplatform.service.ExtUserService"/>
+                <entry key="carscubaplatform_AutoBuyingRequestService"
+                       value="com.company.carscubaplatform.service.AutoBuyingRequestService"/>
+                <entry key="carscubaplatform_CarBrandService"
+                       value="com.company.carscubaplatform.service.CarBrandService"/>
+                <entry key="carscubaplatform_CarNameGenerateService"
+                       value="com.company.carscubaplatform.service.CarNameGenerateService"/>
+            </map>
+        </property>
+    </bean>
+
+</beans>

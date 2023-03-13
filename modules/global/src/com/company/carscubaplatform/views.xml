@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
+
+
+    <view class="com.company.carscubaplatform.entity.person.ExtUser"
+          name="user.browse"
+          extends="user.browse"
+          overwrite="true">
+
+        <property name="country">
+            <property name="name"/>
+            <property name="code"/>
+        </property>
+    </view>
+
+
+    <view class="com.company.carscubaplatform.entity.person.ExtUser"
+          extends="user.edit"
+          name="user.edit"
+          overwrite="true">
+        <property name="country"/>
+    </view>
+
+    <view entity="carscubaplatform_AutoProducer" name="autoProducer-view" extends="_local">
+        <property name="country" view="_minimal"/>
+    </view>
+
+    <view entity="carscubaplatform_AutoBuyingRequest" name="autoBuyingRequest-view" extends="_local">
+        <property name="car" view="_minimal"/>
+        <property name="legalPersonalInfo" view="_minimal">
+            <property name="legalName"/>
+        </property>
+        <property name="manager" view="_minimal"/>
+    </view>
+
+</views>

@@ -1,5 +1,6 @@
 package com.company.carscubaplatform.entity.person;
 
+import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.StandardEntity;
 
 import javax.persistence.Column;
@@ -10,6 +11,7 @@ import javax.validation.constraints.Pattern;
 
 @Table(name = "CARSCUBAPLATFORM_LEGAL_PERSONAL_INFO")
 @Entity(name = "carscubaplatform_LegalPersonalInfo")
+@NamePattern("%s|legalName")
 public class LegalPersonalInfo extends StandardEntity {
     private static final long serialVersionUID = 636450709762342581L;
 

@@ -33,4 +33,10 @@
         <property name="manager" view="_minimal"/>
     </view>
 
+    <view class="com.company.carscubaplatform.entity.dealer.AutoPicking"
+          name="auto-picking-view"
+          extends="_local">
+        <property name="carBrand" view="_minimal"/>
+    </view>
+
 </views>

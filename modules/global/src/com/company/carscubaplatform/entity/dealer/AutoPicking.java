@@ -2,12 +2,14 @@ package com.company.carscubaplatform.entity.dealer;
 
 import com.company.carscubaplatform.entity.car.CarBrand;
 import com.company.carscubaplatform.entity.car.CarType;
+import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.StandardEntity;
 
 import javax.persistence.*;
 
 @Table(name = "CARSCUBAPLATFORM_AUTO_PICKING")
 @Entity(name = "carscubaplatform_AutoPicking")
+@NamePattern("%s|pickingName")
 public class AutoPicking extends StandardEntity {
     private static final long serialVersionUID = 3311252382978875393L;
 

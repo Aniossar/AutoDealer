@@ -7,10 +7,7 @@
     <data readOnly="true">
         <collection id="autoPickingsDc"
                     class="com.company.carscubaplatform.entity.dealer.AutoPicking"
-                    view="_minimal">
-           <!-- <view extends="_local">
-                <property name="carBrand" view="_minimal"/>
-            </view>-->
+                    view="_local">
             <loader id="autoPickingsDl">
                 <query>
                     <![CDATA[select e from carscubaplatform_AutoPicking e]]>
